@@ -1,0 +1,38 @@
+<ion-view title="dashboard">
+  <ion-nav-bar class="bar bar-positive">
+    <ion-nav-buttons side="right">
+      <button class="button button-icon icon ion-camera" ng-click="secureCtrl.upload()"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="left">
+      <button class="button button-icon icon ion-upload" ng-click="secureCtrl.uploadPicture()"></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content>
+    <!--Maximum four columns per row-->
+    <div class="row" ng-repeat="image in secureCtrl.images" ng-if="$index % 4 === 0">
+
+      <div class="col col-25" ng-if="$index < secureCtrl.images.length">
+        <img class="border" ng-src="data:image/jpeg;base64,{{secureCtrl.images[$index].image}}" width="100%"
+             height="10%">
+        <button class="button button-icon ion-android-share button-large"></button>
+      </div>
+      <div class="col col-25" ng-if="$index + 1 < secureCtrl.images.length">
+        <img class="border" ng-src="data:image/jpeg;base64,{{secureCtrl.images[$index+1].image}}" width="100%"
+             height="10%">
+        <!--<img ng-src="{{secureCtrl.images[$index+1]}}" width="100%">-->
+      </div>
+      <div class="col col-25" ng-if="$index + 2 < secureCtrl.images.length">
+        <img class="border" ng-src="data:image/jpeg;base64,{{secureCtrl.images[$index+2].image}}" width="100%"
+             height="10%">
+        <!--<img ng-src="{{secureCtrl.images[$index+2]}}" width="100%">-->
+      </div>
+      <div class="col col-25" ng-if="$index + 3 < secureCtrl.images.length">
+        <img class="border" ng-src="data:image/jpeg;base64,{{secureCtrl.images[$index+3].image}}" width="100%"
+             height="100%">
+        <!--<img ng-src="{{secureCtrl.images[$index+3]}}" width="100%">-->
+      </div>
+
+
+    </div>
+  </ion-content>
+</ion-view>
